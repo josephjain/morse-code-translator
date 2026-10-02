@@ -25,3 +25,10 @@ The trade-off: only the ITU-R M.1677-1 ASCII subset is supported. Lower-case inp
 ## The awkward edge
 
 The slash character does double duty: ` / ` is the word separator, but `-..-.` is the Morse symbol for a literal `/`. Decode treats a slash surrounded by whitespace as a word break and a slash with no surrounding whitespace as part of a symbol. So `.- -..-. -...` decodes to `A/B`, while `.- / -...` decodes to `A B`. Keep this in mind when hand-writing Morse input.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
