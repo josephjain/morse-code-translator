@@ -1,6 +1,6 @@
 {
   "name": "morse-code-translator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Encodes and decodes text to and from International Morse Code using dot-dash sequences and character separators.",
   "type": "module",
   "main": "src/index.js",
